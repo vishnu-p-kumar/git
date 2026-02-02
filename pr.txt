@@ -119,5 +119,14 @@ sudo tcpdump -A -r capture.pcap
 sudo tcpdump -xx -r capture.pcap 
 sudo tcpdump -xx -r tcpsyn.pcap 
 sudo tcpdump -xx -r tcpfin.pcap 
+
+
+
+
+PNG  : 89 50 4E 47 0D 0A 1A 0A
+JPG  : FF D8 FF
+BMP  : 42 4D
+
  
  
+
