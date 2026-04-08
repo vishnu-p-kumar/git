@@ -1,0 +1,27 @@
+docker --version
+
+docker ps
+
+docker ps -a
+
+
+docker images
+
+
+docker run hello-world
+
+
+docker pull nginx
+
+docker run -d -p 8080:80 nginx
+
+
+docker ps
+
+http://localhost:8080
+
+
+docker stop abcd1234
+
+
+docker rm abcd1234

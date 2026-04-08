@@ -1,0 +1,20 @@
+cd Desktop\git\18\Docker-Java
+
+docker build -t java-app .
+
+docker images
+
+docker login
+
+docker tag java-app vpkvishnu/java-app:v1
+
+docker images
+
+docker push vpkvishnu/java-app:v1
+
+docker images
+
+
+docker pull vpkvishnu/java-app:v1
+
+docker run -it vpkvishnu/java-app:v1

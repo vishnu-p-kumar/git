@@ -1,0 +1,8 @@
+docker images
+
+docker build -t my-python-app .
+
+docker run my-python-app
+
+docker run -p 5020:5020 my-python-app
+

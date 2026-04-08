@@ -1,0 +1,11 @@
+mvn archetype:generate
+
+Group Id : SimpleCalculator
+Artifact Id : Calculator
+
+
+mvn clean test
+
+
+
+mvn clean verify

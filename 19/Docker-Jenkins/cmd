@@ -1,0 +1,2 @@
+docker build -t java-app .
+docker run -d -t java-app
