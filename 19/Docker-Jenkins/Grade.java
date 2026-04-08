@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-public class Grade{
+public class Grade {
 
   static char gradeFunction(double avg) {
     if (avg >= 90) return 'A';
@@ -11,25 +9,15 @@ public class Grade{
   }
 
   public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
 
-    System.out.print("How many grades (1 to 5)? ");
-    int count = scanner.nextInt();
-
-    if (count < 1 || count > 5) {
-      System.out.println("Invalid number.");
-      return;
-    }
+    double[] grades = {85, 78, 92, 88, 76};
 
     double sum = 0;
-
-    for (int i = 1; i <= count; i++) {
-      System.out.print("Enter grade " + i + ": ");
-      double grade = scanner.nextDouble();
-      sum += grade;
+    for (double g : grades) {
+      sum += g;
     }
 
-    double avg = sum / count;
+    double avg = sum / grades.length;
 
     System.out.println("Average: " + avg);
     System.out.println("Grade: " + gradeFunction(avg));

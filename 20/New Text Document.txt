@@ -1,0 +1,97 @@
+Below are the **steps written in plain text (no code blocks)** so you can **copy-paste directly into a text file or lab record**.
+
+---
+
+Experiment 20: Simple End-to-End CI/CD Pipeline
+Objective: To understand the DevOps lifecycle by building a simple CI/CD pipeline using GitHub, Jenkins, Maven, and Docker.
+
+Step 1: Generate Maven Web Application
+Open Command Prompt and navigate to the desired folder location.
+Run the Maven archetype generation command.
+Select the archetype org.apache.maven.archetypes:maven-archetype-webapp.
+Choose the latest version available.
+Enter the following project details when prompted:
+GroupId: com.bnmit
+ArtifactId: jenkins-tomcat-maven-tested
+Version: 1.0-SNAPSHOT
+Package: com.bnmit
+Confirm the configuration.
+Maven will generate the project structure successfully.
+
+Step 2: Navigate to the Project Folder
+Open the generated project folder jenkins-tomcat-maven-tested.
+Inside the project create the Java source folder if it does not exist.
+Create the package folder com.bnmit inside src/main/java.
+
+Step 3: Add Application Code
+Create a servlet file named HelloServlet.java inside the package folder.
+Add the servlet code that prints the message “Deployment Successful! GitHub → Jenkins → Docker → Tomcat”.
+Open the web.xml file located in src/main/webapp/WEB-INF and configure the servlet mapping.
+Modify the index.jsp file to display a welcome message and provide a link to access the servlet.
+
+Step 4: Modify pom.xml
+Open the pom.xml file in the project root folder.
+Set the packaging type to WAR.
+Add the servlet dependency javax.servlet-api with provided scope.
+Save the pom.xml file.
+
+Step 5: Build the Maven Project
+Open Command Prompt inside the project folder.
+Run the Maven build command to compile the project and package it.
+Maven will generate a WAR file inside the target folder.
+Verify that the WAR file is created successfully.
+
+Step 6: Create Dockerfile
+In the project root folder create a file named Dockerfile.
+Configure it to use the Tomcat base image.
+Copy the generated WAR file into the Tomcat webapps directory.
+Expose port 8087 and configure the container to run Tomcat.
+
+Step 7: Build Docker Image
+Open Command Prompt in the project folder.
+Build the Docker image using the Docker build command.
+Verify that the image is created successfully using the Docker images command.
+
+Step 8: Run Docker Container
+Run a Docker container from the created image.
+Map port 8087 of the host system to port 8080 of the container.
+Verify that the container is running using the Docker ps command.
+
+Step 9: Push Project to GitHub
+Create a new repository in GitHub.
+Initialize Git in the project folder.
+Add all project files to the Git repository.
+Commit the files with a suitable message.
+Add the remote GitHub repository URL.
+Push the project to GitHub.
+
+Step 10: Configure Jenkins
+Open Jenkins in the browser using localhost:8080.
+Go to Manage Jenkins and configure Maven in Global Tool Configuration.
+Add the Maven installation path and name it mymaven.
+Save the configuration.
+
+Step 11: Create Jenkins Pipeline Job
+Go to Jenkins dashboard and click New Item.
+Enter the job name CI-CD-Pipeline.
+Select Pipeline project and click OK.
+Choose Pipeline script from SCM.
+Select Git as the SCM.
+Enter the GitHub repository URL of the project.
+Set the branch to main and script path to Jenkinsfile.
+Save the configuration.
+
+Step 12: Run Jenkins Pipeline
+Click Build Now to start the pipeline execution.
+Jenkins will clone the repository from GitHub.
+Jenkins will build the project using Maven.
+Jenkins will build the Docker image.
+Jenkins will stop any existing container and run a new container.
+
+http://localhost:8087/sample-webapp
+
+Step 13: Verify Deployment
+Check the Jenkins console output to ensure all stages completed successfully.
+Verify that the Docker container is running.
+Open the browser and access the application using localhost with the mapped port.
+The application page will display the CI/CD demo message.
